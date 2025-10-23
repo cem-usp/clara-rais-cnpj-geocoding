@@ -246,6 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ipeagit.github.io/geobr/">geobr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ipeaGIT/geocodebr">geocodebr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial/">ggspatial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org">googlesheets4</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools">htmltools</a></span><span class="op">)</span></span>
@@ -367,6 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>    g1_g2_uf <span class="op">=</span> <span class="va">g1g2_uf</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cnae</span>, <span class="va">uf</span>, <span class="va">g0_uf</span>, <span class="va">g1_g2_uf</span>, <span class="va">g3_uf</span>, <span class="va">g4_uf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Auto-refreshing stale OAuth token.</span></span>
 <span><span class="co">#&gt; ✔ Reading from "Locais-Nova By CNAE - clara-rais-cnpj-geocoding".</span></span>
 <span><span class="co">#&gt; ✔ Range ''Dataset''.</span></span>
 <span></span>
@@ -701,7 +703,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">municipios_ref</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">demais_arquivos_dir</span>, <span class="st">"F.K03200$Z.D50111.MUNICCSV"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/vroom/man/vroom.html">vroom</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://vroom.r-lib.org/reference/vroom.html">vroom</a></span><span class="op">(</span></span>
 <span>    delim <span class="op">=</span> <span class="st">";"</span>,</span>
 <span>    <span class="co"># encoding = "Latin-1",</span></span>
 <span>    col_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MUNICIPIO_TOM"</span>, <span class="st">"no_municipio"</span><span class="op">)</span>,</span>
@@ -734,7 +736,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/conditions.html">tryCatch</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>      <span class="va">estab</span> <span class="op">&lt;-</span></span>
 <span>        <span class="va">caminho_arquivo</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/vroom/man/vroom.html">vroom</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://vroom.r-lib.org/reference/vroom.html">vroom</a></span><span class="op">(</span></span>
 <span>          delim <span class="op">=</span> <span class="st">";"</span>,</span>
 <span>          <span class="co"># encoding = "Latin-1",</span></span>
 <span>          col_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
@@ -1009,21 +1011,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>    size <span class="op">=</span> <span class="fl">0.1</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggspatial</span><span class="fu">::</span><span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html">annotation_scale</a></span><span class="op">(</span></span>
-<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html">annotation_scale</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    location <span class="op">=</span> <span class="st">"br"</span>,</span>
 <span>    style <span class="op">=</span> <span class="st">"tick"</span>,</span>
-<span>    height <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.15</span>, <span class="st">"cm"</span><span class="op">)</span></span>
+<span>    height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.15</span>, <span class="st">"cm"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggspatial</span><span class="fu">::</span><span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html">annotation_north_arrow</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html">annotation_north_arrow</a></span><span class="op">(</span></span>
 <span>    location <span class="op">=</span> <span class="st">"br"</span>,</span>
-<span>    height <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>    width <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>    pad_x <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>    pad_y <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.55</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>    style <span class="op">=</span> <span class="fu">ggspatial</span><span class="fu">::</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial/reference/north_arrow_orienteering.html">north_arrow_fancy_orienteering</a></span></span>
+<span>    height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>    width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>    pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>    pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0.55</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>    style <span class="op">=</span> <span class="va">north_arrow_fancy_orienteering</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggspatial</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">4674</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">4674</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>override.aes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>

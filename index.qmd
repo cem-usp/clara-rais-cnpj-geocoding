@@ -38,6 +38,7 @@ library(fs)
 library(geobr)
 library(geocodebr)
 library(ggplot2)
+library(ggspatial)
 library(googlesheets4)
 library(here)
 library(htmltools)
@@ -853,21 +854,21 @@ ggplot() +
     size = 0.1
   ) +
   scale_color_viridis_d() +
-  ggspatial::annotation_scale(
-    ggplot2::aes(),
+  annotation_scale(
+    aes(),
     location = "br",
     style = "tick",
-    height = ggplot2::unit(0.15, "cm")
+    height = unit(0.15, "cm")
   ) +
-  ggspatial::annotation_north_arrow(
+  annotation_north_arrow(
     location = "br",
-    height = ggplot2::unit(1, "cm"),
-    width = ggplot2::unit(1, "cm"),
-    pad_x = ggplot2::unit(0.1, "cm"),
-    pad_y = ggplot2::unit(0.55, "cm"),
-    style = ggspatial::north_arrow_fancy_orienteering
+    height = unit(1, "cm"),
+    width = unit(1, "cm"),
+    pad_x = unit(0.1, "cm"),
+    pad_y = unit(0.55, "cm"),
+    style = north_arrow_fancy_orienteering
   ) +
-  ggspatial::coord_sf(crs = 4674) +
+  coord_sf(crs = 4674) +
   guides(color = guide_legend(override.aes = list(size = 3))) +
   labs(
     x = NULL,
